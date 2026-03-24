@@ -1,0 +1,91 @@
+/**
+ * EDS Quick Gallery — Frontend Stylesheet
+ * eDesign Space · https://edesignspace.com/
+ */
+
+/* ── Grid ────────────────────────────────────────────────────────────────────── */
+.eqg-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Elementor responsive selector overrides */
+  gap: 8px;
+}
+
+/* ── Masonry ─────────────────────────────────────────────────────────────────── */
+.eqg-masonry {
+  column-count: 3;
+  column-gap: 8px;
+}
+.eqg-masonry .eqg-item {
+  break-inside: avoid;
+  margin-bottom: 8px;
+  display: block;
+}
+
+/* ── Item ─────────────────────────────────────────────────────────────────────── */
+.eqg-item {
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.25s ease;
+}
+
+/* ── Media wrapper ───────────────────────────────────────────────────────────── */
+.eqg-item__media {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Ratio box — used when aspect ratio preset is selected */
+.eqg-item__media--ratio {
+  padding-bottom: 100%; /* default 1:1; overridden by inline style */
+}
+
+/* ── Image ───────────────────────────────────────────────────────────────────── */
+.eqg-item__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.35s ease, filter 0.3s ease;
+}
+
+/* Fill the ratio box */
+.eqg-item__media--ratio img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Masonry / auto: natural height */
+.eqg-masonry .eqg-item__media img {
+  position: static;
+  height: auto;
+}
+
+/* Lightbox anchor fills the media box */
+.eqg-item__media a {
+  display: block;
+}
+.eqg-item__media--ratio a {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+
+/* ── Hover effects ───────────────────────────────────────────────────────────── */
+.eqg-hover-zoom-in  .eqg-item:hover img { transform: scale(1.08); }
+.eqg-hover-zoom-out img                  { transform: scale(1.08); }
+.eqg-hover-zoom-out .eqg-item:hover img  { transform: scale(1); }
+.eqg-hover-dim      .eqg-item:hover img  { filter: brightness(0.7); }
+.eqg-hover-brighten .eqg-item:hover img  { filter: brightness(1.15); }
+
+/* ── Hover overlay ───────────────────────────────────────────────────────────── */
+.eqg-item__overlay {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
