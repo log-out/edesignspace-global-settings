@@ -38,6 +38,13 @@ class EDS_Extensions_Admin {
 				'icon'        => 'dashicons-controls-repeat',
 				'default'     => false,
 			],
+			[
+				'id'          => 'element-link',
+				'label'       => __( 'Element Link', 'eds-global-settings' ),
+				'description' => __( 'Make any widget, section, column, or container clickable with a full URL — including dynamic tags. Uses JS onclick so layout is never broken by an &lt;a&gt; wrapper.', 'eds-global-settings' ),
+				'icon'        => 'dashicons-admin-links',
+				'default'     => true,
+			],
 		];
 	}
 

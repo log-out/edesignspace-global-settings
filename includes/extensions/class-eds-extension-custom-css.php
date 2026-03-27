@@ -53,7 +53,6 @@ class EDS_Extension_Custom_CSS {
 			'separator'          => 'none',
 			'default'            => '',
 			'description'        => __( 'selector refers to the element\'s unique CSS class.', 'eds-global-settings' ),
-			'frontend_available' => true,
 		] );
 
 		$element->end_controls_section();

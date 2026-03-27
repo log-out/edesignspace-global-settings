@@ -3,7 +3,7 @@
  * Plugin Name:       EDS Toolkit
  * Plugin URI:        https://edesignspace.com/
  * Description:       EDS Toolkit — Global Settings, Dynamic Tags, and Elementor widgets by eDesign Space.
- * Version:           2.3.3
+ * Version:           2.4.3
  * Author:            eDesign Space
  * Author URI:        https://edesignspace.com/
  * License:           GPL v2 or later
@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 // ─── Plugin Constants ────────────────────────────────────────────────────────
 
-define( 'EDS_VERSION',     '2.3.3' );
+define( 'EDS_VERSION',     '2.4.3' );
 define( 'EDS_PLUGIN_FILE', __FILE__ );
 define( 'EDS_PLUGIN_DIR',  plugin_dir_path( __FILE__ ) );
 define( 'EDS_PLUGIN_URL',  plugin_dir_url( __FILE__ ) );
@@ -73,6 +73,7 @@ final class EDS_Global_Settings {
 		require_once EDS_PLUGIN_DIR . 'includes/extensions/class-eds-extension-custom-css.php';
 		require_once EDS_PLUGIN_DIR . 'includes/extensions/class-eds-extension-motion-effects.php';
 		require_once EDS_PLUGIN_DIR . 'includes/extensions/class-eds-extension-loop-animations.php';
+		require_once EDS_PLUGIN_DIR . 'includes/extensions/class-eds-extension-element-link.php';
 		require_once EDS_PLUGIN_DIR . 'includes/class-eds-elementor-manager.php';
 		require_once EDS_PLUGIN_DIR . 'includes/class-eds-widgets-manager.php';
 	}
@@ -124,6 +125,9 @@ final class EDS_Global_Settings {
 			}
 			if ( EDS_Extensions_Admin::is_enabled( 'loop-animations' ) ) {
 				new EDS_Extension_Loop_Animations();
+			}
+			if ( EDS_Extensions_Admin::is_enabled( 'element-link' ) ) {
+				new EDS_Extension_Element_Link();
 			}
 		} );
 
